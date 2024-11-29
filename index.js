@@ -89,7 +89,7 @@ let generateLink = function () {
     } else if (loversName === "") {
         alert("lütfen o'nun adını gir");
     } else if (isNotClicked) {
-        document.getElementById("lovelink").innerHTML = `Özel Aşkölçerin hazır: <a href="/?q=${buff}">Ziyaret et.</a>`
+        document.getElementById("lovelink").innerHTML = `Özel Aşkölçerin hazır: <a href="https://coskntkk.github.io/custom_love_calculator?q=${buff}">Ziyaret et.</a>`
         isNotClicked = false;
     }
 }
