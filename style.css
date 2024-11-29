@@ -1,0 +1,61 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-color: #c72c41;
+    color: white;
+    font-family: "Lobster", cursive;
+}
+
+.calculator {
+    /* padding: 1em; */
+    text-align: center;
+    background-color: #211717;
+    width: 50%;
+    scale: 2;
+}
+
+.name-box {
+    padding: 12px 14px;
+    width: 40%;
+}
+
+#lovefinal, #lovelink {
+    color: #c72c41;
+}
+
+/* buttons */
+.buttons {
+    color: #ffd7e8;
+    background-color: #ffaaaa;
+    border: solid;
+    border-color: #ee4266;
+    cursor: pointer;
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+    opacity: 0.75;
+    font-size: 1rem;
+    color: #ee4266;
+}
+
+.buttons:hover {
+    opacity: 1;
+}
+
+/* Media Query */
+@media only screen and (max-width: 767px) {
+    /* .buttons {
+        width: 30%;
+        border-radius: 5px;
+    } */
+    .calculator {
+        width: 100%;
+        height: 100%;
+    }
+}
