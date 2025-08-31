@@ -17,7 +17,7 @@ let errorBlock = `<h1> Bilinmeyen bir hata oluştu </h1>`
 
 let generateLinkBlock = `
 <div id="love-calculator" class="calculator">
-    <form id="loveForm" id="loveform" class="" action="/" onsubmit="return generateLink()" method="post">
+    <form id="loveForm" class="" action="/" onsubmit="return generateLink()" method="post">
     <h1>Aşkölçer</h1>
     <h2 id="lovelink">Aşk ölçer oluştur</h2>
     <h2>İsmin</h2>
@@ -40,15 +40,14 @@ let name2 = null
 
 if (value) {
     try {
-        let base64ToStringNew = atob(value)
+        let base64ToStringNew = decodeURIComponent(escape(atob(value)));
         let arr = base64ToStringNew.split(",")
         name1 = arr[0]
         name2 = arr[1]
-        document.getElementById("bod").innerHTML += htmlBlock
+        document.getElementById("bod").insertAdjacentHTML("beforeend", htmlBlock);
     } catch (error) {
         console.log(error);
-        console.log(error);
-        document.getElementById("bod").innerHTML += errorBlock
+        document.getElementById("bod").insertAdjacentHTML("beforeend", errorBlock);
     }
 } else {
     document.getElementById("bod").innerHTML += generateLinkBlock
@@ -58,6 +57,7 @@ let loveCalculator = function () {
     let yourName = document.getElementById("firstname").value;
     let loversName = document.getElementById("lovername").value;
     let loveScore = Math.floor(Math.random() * 10);
+
     if (
         (name1.toLowerCase() === yourName.toLowerCase() && name2.toLowerCase() === loversName.toLowerCase())
         ||
@@ -83,7 +83,7 @@ let generateLink = function () {
     let yourName = document.getElementById("firstname1").value;
     let loversName = document.getElementById("lovername1").value;
     let str = yourName.toLowerCase().trim() + "," + loversName.toLowerCase().trim();
-    let buff = btoa(str)
+    let buff = btoa(unescape(encodeURIComponent(str)))
     if (yourName === "") {
         alert("lütfen adını gir");
     } else if (loversName === "") {
